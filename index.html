@@ -45,7 +45,7 @@
             <span class="bell-badge">3</span>
         </button>
         
-     <div class="bell-dropdown hidden" id="notiContent" style="position: absolute; left: 0; top: 40px; background: white; border: 1px solid #ddd; width: 300px;">
+ <div class="bell-dropdown" id="notiContent" style="z-index: 9999;">
             <div class="bell-dropdown-header" style="padding: 10px; background: #f9f9f9; border-bottom: 1px solid #ddd;">
                 <span>🔔 التنبيهات الأخيرة</span>
             </div>
@@ -770,27 +770,26 @@ if (notiBell && notiContent) {
     }
   });
 }
-const notiBell = document.getElementById('notiBell');
-const notiContent = document.getElementById('notiContent');
-const bellBadge = document.querySelector('.bell-badge');
-  notiBell.addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // إظهار أو إخفاء القائمة عن طريق تبديل كلاس hidden الخاص بـ Tailwind
-        notiContent.classList.toggle("hidden");
-        
-        // 2. إخفاء الدائرة الحمراء (الشارة) عند فتح الإشعارات
-        if (bellBadge) {
-            bellBadge.style.display = "none";
-        }
-    });
+// 1. عند الضغط على زر الجرس
+notiBell.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
 
-    // 3. إغلاق القائمة تلقائياً إذا ضغط المستخدم في أي مكان خارج الجرس أو القائمة
- notiContent.classList.add("hidden");
-        if (!notiBell.contains(e.target) && !notiContent.contains(e.target)) {
-            notiContent.classList.add("hidden");
-        }
+    // تبديل كلاس show المكتوب في الـ CSS لإظهار وإخفاء القائمة مع الأنيميشن
+    notiContent.classList.toggle("show");
+
+    // 2. إخفاء الدائرة الحمراء (الشارة)
+    if (bellBadge) {
+        bellBadge.style.display = "none";
+    }
+});
+
+// 3. إغلاق القائمة تلقائياً إذا ضغط المستخدم في أي مكان بالخارج
+document.addEventListener("click", function(e) {
+    if (!notiBell.contains(e.target) && !notiContent.contains(e.target)) {
+        notiContent.classList.remove("show"); // حذف كلاس show لإغلاقها
+    }
+});
     });
 }
 </script>
