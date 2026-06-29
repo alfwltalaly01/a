@@ -721,6 +721,30 @@
       window.open(`https://wa.me/966599178496?text=${encodeURIComponent(message)}`, '_blank');
     });
   }
+  // تفعيل عمل سلة الإشعارات
+  const notiBell = document.getElementById("notiBell");
+  const notiContent = document.getElementById("notiContent");
+  const bellBadge = document.querySelector(".bell-badge");
+
+  if (notiBell && notiContent) {
+    notiBell.addEventListener("click", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      notiContent.classList.toggle("show");
+      
+      // تصفير شارة التنبيه الحمراء بمجرد المشاهدة
+      if (bellBadge) {
+        bellBadge.style.display = "none";
+      }
+    });
+
+    // إغلاق القائمة تلقائياً إذا ضغط المستخدم في أي مكان خارجها
+    document.addEventListener("click", function(e) {
+      if (!notiBell.contains(e.target) && !notiContent.contains(e.target)) {
+        notiContent.classList.remove("show");
+      }
+    });
+  }
 </script>
 </body>
 </html>
