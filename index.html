@@ -787,7 +787,7 @@ const bellBadge = document.querySelector('.bell-badge');
     });
 
     // 3. إغلاق القائمة تلقائياً إذا ضغط المستخدم في أي مكان خارج الجرس أو القائمة
-    document.addEventListener("click", function(e) {
+ notiContent.classList.add("hidden");
         if (!notiBell.contains(e.target) && !notiContent.contains(e.target)) {
             notiContent.classList.add("hidden");
         }
