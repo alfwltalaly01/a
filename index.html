@@ -14,7 +14,96 @@
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
 <div class="nav-inner" style="display: flex !important; justify-content: space-between !important; align-items: center !important;">
- 
+ <style>
+/* حاوية زر الإشعارات */
+.notification-container {
+  position: relative;
+  display: inline-block;
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+}
+
+/* زر الجرس */
+.bell-icon-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  z-index: 1001;
+}
+
+/* شارة عدد الإشعارات */
+.bell-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: #ff3b30;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* القائمة المنسدلة للإشعارات - متوافقة مع التايلوند والموبايل */
+.bell-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0; 
+  width: 290px; 
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* الكلاس المتوافق مع سكريبت الإغلاق والفتح عندك */
+.bell-dropdown.hidden {
+  display: none !important;
+}
+
+@media (max-width: 360px) {
+  .bell-dropdown {
+    width: 250px;
+  }
+}
+
+.bell-dropdown-header {
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  text-align: right;
+}
+
+.bell-dropdown-body {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.bell-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.bell-item:last-child {
+  border-bottom: none;
+}
+
+.bell-item.unread {
+  background-color: #f0f7ff;
+}
+</style>
   </script>
 </body>
 </html>
