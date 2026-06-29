@@ -100,3 +100,19 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Bell Notification
+const notiBell = document.getElementById('notiBell');
+const notiContent = document.getElementById('notiContent');
+
+if (notiBell && notiContent) {
+  notiBell.addEventListener('click', function(e) {
+    e.stopPropagation();
+    notiContent.classList.toggle('show');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!notiBell.contains(e.target) && !notiContent.contains(e.target)) {
+      notiContent.classList.remove('show');
+    }
+  });
+}
