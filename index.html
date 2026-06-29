@@ -726,12 +726,17 @@
     });
   }
   // تفعيل عمل سلة الإشعارات
-  const notiBell = document.getElementById("notiBell");
- // تصحيح الربط بين البرمجة والعناصر
+  // تفعيل عمل سلة الإشعارات
 const notiBell = document.getElementById("notiBell");
 const notiContent = document.getElementById("notiContent");
 const bellBadge = document.querySelector(".bell-badge");
-  if (notiBell && notiContent) {
+
+if (notiBell && notiContent) {
+    notiBell.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        notiContent.classList.toggle("show");
+    });
     notiBell.addEventListener("click", function(e) {
       e.preventDefault();
       e.stopPropagation();
