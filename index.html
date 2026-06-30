@@ -789,5 +789,25 @@
         }
     });
 </script>  
+  section class="ticker-section">
+  <div class="ticker-wrap">
+    <div class="ticker-badge"><span class="bell">🔔</span> تنبيهات</div>
+    <div class="ticker-track">
+      <div class="ticker-inner" id="tickerInner"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const bellItems = document.querySelectorAll('#notiContent .bell-item');
+  const ticker = document.getElementById('tickerInner');
+  let html = '';
+  bellItems.forEach(item => {
+    html += `<span class="ticker-item">${item.innerHTML}</span><span class="ticker-sep">◆</span>`;
+  });
+  ticker.innerHTML = html + html; // تكرار للحلقة السلسة
+  ticker.addEventListener('touchstart', () => ticker.style.animationPlayState = 'paused');
+  ticker.addEventListener('touchend', () => ticker.style.animationPlayState = 'running');
+</script>      
 </body>
 </html>
