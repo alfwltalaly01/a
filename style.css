@@ -652,7 +652,7 @@ z-index: 999999;
 @keyframes bellShake{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(-15deg)}80%{transform:rotate(15deg)}85%{transform:rotate(-10deg)}90%{transform:rotate(10deg)}}
 .ticker-track{flex:1;overflow:hidden;position:relative}
 .ticker-track::before{content:'';position:absolute;right:0;top:0;bottom:0;width:50px;background:linear-gradient(to left,#0d0a06,transparent);z-index:3;pointer-events:none}
-.ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:tickerScroll 20s linear infinite}
+.ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:tickerScroll 10s linear infinite}
 .ticker-inner:hover{animation-play-state:paused}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .ticker-item{display:inline-flex;align-items:center;gap:7px;margin-left:50px;color:#f5e8c0;font-size:13.5px;font-weight:500}
